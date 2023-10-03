@@ -1,0 +1,142 @@
+---
+import "@fontsource-variable/montserrat";
+import "photoswipe/style.css";
+import arbol_luna from "@public/gallery/arbol_luna.jpg";
+import cosas from "@public/gallery/cosas.jpg";
+import fuego_playa from "@public/gallery/fuego_playa.jpg";
+import luna_llena_minita from "@public/gallery/luna_llena_minita.jpg";
+import luna_llena_minita2 from "@public/gallery/luna_llena_minita2.jpg";
+import luna_llena1 from "@public/gallery/luna_llena1.jpg";
+import luna_llena2 from "@public/gallery/luna_llena2.jpg";
+import luna_llena3 from "@public/gallery/luna_llena3.jpg";
+import playa_asterik from "@public/gallery/playa_asterik.jpg";
+import playa_sendero from "@public/gallery/playa_sendero.jpg";
+import playa_sendero2 from "@public/gallery/playa_sendero2.jpg";
+import stars from "@public/gallery/stars.jpg";
+
+interface GalleryItem {
+  src: string;
+  thumbnail: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+const galleryItems: GalleryItem[] = [
+  {
+    src: "gallery/arbol_luna.jpg",
+    thumbnail: "gallery/thumbnails/arbol_luna.jpg",
+    width: arbol_luna.width,
+    height: arbol_luna.height,
+    alt: "Árbol con la luna llena de fondo",
+  },
+  {
+    src: "gallery/cosas.jpg",
+    thumbnail: "gallery/thumbnails/cosas.jpg",
+    width: cosas.width,
+    height: cosas.height,
+    alt: "Cosas",
+  },
+  {
+    src: "gallery/fuego_playa.jpg",
+    thumbnail: "gallery/thumbnails/fuego_playa.jpg",
+    width: fuego_playa.width,
+    height: fuego_playa.height,
+    alt: "Fuego en la playa",
+  },
+  {
+    src: "gallery/luna_llena_minita.jpg",
+    thumbnail: "gallery/thumbnails/luna_llena_minita.jpg",
+    width: luna_llena_minita.width,
+    height: luna_llena_minita.height,
+    alt: "Luna llena en la minita",
+  },
+  {
+    src: "gallery/luna_llena_minita2.jpg",
+    thumbnail: "gallery/thumbnails/luna_llena_minita2.jpg",
+    width: luna_llena_minita2.width,
+    height: luna_llena_minita2.height,
+    alt: "Luna llena en la minita",
+  },
+  {
+    src: "gallery/luna_llena1.jpg",
+    thumbnail: "gallery/thumbnails/luna_llena1.jpg",
+    width: luna_llena1.width,
+    height: luna_llena1.height,
+    alt: "Luna llena",
+  },
+  {
+    src: "gallery/luna_llena2.jpg",
+    thumbnail: "gallery/thumbnails/luna_llena2.jpg",
+    width: luna_llena2.width,
+    height: luna_llena2.height,
+    alt: "Luna llena",
+  },
+  {
+    src: "gallery/luna_llena3.jpg",
+    thumbnail: "gallery/thumbnails/luna_llena3.jpg",
+    width: luna_llena3.width,
+    height: luna_llena3.height,
+    alt: "Luna llena",
+  },
+  {
+    src: "gallery/playa_asterik.jpg",
+    thumbnail: "gallery/thumbnails/playa_asterik.jpg",
+    width: playa_asterik.width,
+    height: playa_asterik.height,
+    alt: "Playa asterik",
+  },
+  {
+    src: "gallery/playa_sendero.jpg",
+    thumbnail: "gallery/thumbnails/playa_sendero.jpg",
+    width: playa_sendero.width,
+    height: playa_sendero.height,
+    alt: "Playa sendero",
+  },
+  {
+    src: "gallery/playa_sendero2.jpg",
+    thumbnail: "gallery/thumbnails/playa_sendero2.jpg",
+    width: playa_sendero2.width,
+    height: playa_sendero2.height,
+    alt: "Playa sendero",
+  },
+  {
+    src: "gallery/stars.jpg",
+    thumbnail: "gallery/thumbnails/stars.jpg",
+    width: stars.width,
+    height: stars.height,
+    alt: "Estrellas",
+  },
+];
+---
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+  });
+  lightbox.init();
+</script>
+
+<div id="gallery" class="flex gap-2 flex-1 overflow-x-auto">
+  {
+    galleryItems.map((item) => (
+      <a
+        data-pswp-width={item.width}
+        data-pswp-height={item.height}
+        href={item.src}
+        class="border-4 border-[#d8fd94]"
+      >
+        <img
+          src={item.thumbnail}
+          alt={item.alt}
+          class="aspect-square"
+          width="50"
+        />
+      </a>
+    ))
+  }
+</div>
