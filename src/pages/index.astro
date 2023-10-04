@@ -1,17 +1,31 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
-import Gallery from "../components/Gallery.astro";
-import logo from "../../public/logo.svg";
+import Layout from "@/layouts/Layout.astro";
+import Gallery from "@/components/Gallery.astro";
+import Contact from "@/components/Contact.astro";
+import logo from "@public/logo.svg";
+
+const QUINTA_ARMONIA_URL = "https://maps.app.goo.gl/VJi8qchXtd5uoxya8";
 ---
 
-<Layout title="Isla Paulino">
+<Layout title="Isla Paulino, punto com...">
   <main class="min-h-screen flex justify-between items-center flex-col">
-    <div>hi</div>
+    <div class="w-full flex p-2 justify-between">
+      <p>
+        <a
+          href={QUINTA_ARMONIA_URL}
+          class="text-paupink subpixel-antialiased font-bold text-sm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visita Quinta Armonía
+        </a>
+      </p>
+      <Contact />
+    </div>
     <Image src={logo} alt={"Isla Paulino punto com"} height={"125"} />
-    <div class="w-full p-4 flex justify-around">
+    <div class="w-full p-4 flex">
       <Gallery />
-      <div class="flex-1"></div>
     </div>
   </main>
 </Layout>
