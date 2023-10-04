@@ -121,20 +121,21 @@ const galleryItems: GalleryItem[] = [
   lightbox.init();
 </script>
 
-<div id="gallery" class="flex gap-2 flex-1 overflow-x-auto">
+<div id="gallery" class="flex gap-2 flex-nowrap flex-1 overflow-x-auto">
   {
     galleryItems.map((item) => (
       <a
         data-pswp-width={item.width}
         data-pswp-height={item.height}
         href={item.src}
-        class="border-4 border-[#d8fd94]"
+        class="border-4 border-paupink shrink-0"
       >
         <img
           src={item.thumbnail}
           alt={item.alt}
           class="aspect-square"
           width="50"
+          height="50"
         />
       </a>
     ))
