@@ -1,0 +1,22 @@
+---
+import github from "@/icons/github-mark.png";
+import emailIcon from "@/icons/email.png";
+import { Image } from "astro:assets";
+
+const GITHUB_URL = "https://github.com/angelsantosa/islapaulino";
+---
+
+<script>
+  const EMAIL_BASE64 = "Y29uZWN0YUBpc2xhcGF1bGluby5jb20=";
+  const form = document.getElementById("contact_me_but_bots_butts");
+  form?.setAttribute("href", "mailto:".concat(atob(EMAIL_BASE64)));
+</script>
+
+<div class="flex gap-2">
+  <a id="contact_me_but_bots_butts" href="">
+    <Image src={emailIcon} alt="Email" width="28" height="28" />
+  </a>
+  <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+    <Image src={github} alt="Github" width="28" height="28" />
+  </a>
+</div>
